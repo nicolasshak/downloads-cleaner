@@ -2,20 +2,24 @@ import os
 from os import listdir
 from os.path import isfile, join
 
+toDelete = ['.exe', '.bat']
+toMove = ['.zip']
+
 def shouldDelete(file_name):
 
-	if '.exe' in file_name:
-		return True
-	elif '.bat' in file_name:
-		return True
-	else:
-		return False
+	for extension in toDelete:
+		if extension in file_name:
+			return True
+
+	return False
 
 def shouldMove(file_name):
-	if '.zip' in file_name:
-		return True
-	else:
-		return False
+
+	for extension in toMove:
+		if extension in file_name:
+			return True
+	
+	return False
 
 def main():
 
